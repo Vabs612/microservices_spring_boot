@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.learning.microservices.controller.CurrencyConversionBean;
 
-@FeignClient(name = "currency-exchange-service")
+@FeignClient(name = "netflix-zuul-api-gateway-server")
 @RibbonClient(name="currency-exchange-service")
 public interface CurrencyExchangeServiceProxy {
 
-	@GetMapping("/currency-exchange/from/{from}/to/{to}")
+	@GetMapping("/currency-exchange-service/currency-exchange/from/{from}/to/{to}")
 	public CurrencyConversionBean retriveExchangeValue(@PathVariable String from,@PathVariable String to);
 }
